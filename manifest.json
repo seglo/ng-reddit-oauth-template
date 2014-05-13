@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "superduper",
+  "description": "A reddit account duplicator, history scrubber, and other awesomeness.",
+  "version": "1.0",
+
+  "permissions": [
+    "https://ssl.reddit.com/",
+    "https://oauth.reddit.com/"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "scripts": ["chrome_events.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "app/index.html*"
+  ]
+}
