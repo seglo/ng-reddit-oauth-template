@@ -12,7 +12,7 @@ angular.module('redditOAuthTemplateApp')
 
     $scope.getUserInfo = function() {
       redditApi.getApiMe().then(function(result) {
-        $scope.userInfo = JSON.stringify(result.data, undefined, 2);
+        $scope.userInfo = $window.JSON.stringify(result.data, undefined, 2);
       });
     };
   });

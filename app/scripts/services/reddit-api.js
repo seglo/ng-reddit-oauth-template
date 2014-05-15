@@ -28,7 +28,7 @@ angular.module('redditOAuthTemplateApp')
     };
 
     var logError = function(data) {
-      $log.error('Error: ' + JSON.stringify(data));
+      $log.error('Error: ' + $window.JSON.stringify(data));
       return $q.reject(data);
     };
 
