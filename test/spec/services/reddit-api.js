@@ -1,22 +1,22 @@
 'use strict';
 
-describe('Service: RedditApi', function () {
+describe('Service: redditApi', function () {
 
   // load the service's module
   beforeEach(module('redditOAuthTemplateApp'));
 
   // instantiate service
-  var RedditApi;
-  beforeEach(inject(function (_RedditApi_) {
-    RedditApi = _RedditApi_;
+  var redditApi;
+  beforeEach(inject(function (_redditApi_) {
+    redditApi = _redditApi_;
   }));
 
   xit('should do something', function () {
-    expect(!!RedditApi).toBe(true);
+    expect(!!redditApi).toBe(true);
   });
 
   xit('foo', function(){
-    expect(RedditApi.login('sean', 'mypass')).toBe('mypass');
+    expect(redditApi.login('sean', 'mypass')).toBe('mypass');
   })
 
 });

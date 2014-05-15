@@ -4,6 +4,3 @@ dist
 .sass-cache
 app/bower_components
 *.pyc
-Include
-Scripts
-Lib
