@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "superduper",
-  "description": "A reddit account duplicator, history scrubber, and other awesomeness.",
+  "name": "redditOAuthTemplate",
+  "description": "A template for reddit OAuth in an AngularJS chrome extension",
   "version": "1.0",
 
   "permissions": [

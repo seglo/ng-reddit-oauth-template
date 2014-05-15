@@ -3,7 +3,7 @@
 describe('Service: RedditApi', function () {
 
   // load the service's module
-  beforeEach(module('superduperApp'));
+  beforeEach(module('redditOAuthTemplateApp'));
 
   // instantiate service
   var RedditApi;

@@ -3,7 +3,7 @@
 describe('Controller: OauthCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('superduperApp'));
+  beforeEach(module('redditOAuthTemplateApp'));
 
   var OauthCtrl,
     scope;
