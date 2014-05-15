@@ -1,6 +1,5 @@
 'use strict';
 
-/*jshint camelcase: false */
 angular.module('redditOAuthTemplateApp')
   .run(function($window) {
     // TODO: move this util method somewhere more appropriate
@@ -25,4 +24,3 @@ angular.module('redditOAuthTemplateApp')
       $location.path('/');
     });
   });
-/*jshint camelcase: true */

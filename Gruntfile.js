@@ -25,117 +25,8 @@ module.exports = function(grunt) {
       dist: 'dist'
     },
 
-    // Watches files for changes and runs tasks based on the changed files
-    watch: {
-      bower: {
-        files: ['bower.json'],
-        tasks: ['bowerInstall']
-      },
-      js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
-        options: {
-          livereload: true
-        }
-      },
-      jsTest: {
-        files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
-      },
-      styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
-      },
-      gruntfile: {
-        files: ['Gruntfile.js']
-      },
-      livereload: {
-        options: {
-          livereload: '<%= connect.options.livereload %>'
-        },
-        files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
-      }
-    },
-
     // The actual grunt server settings
     connect: {
-      options: {
-        port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
-        livereload: 35729,
-        middleware: function(connect, options) {
-          if (!Array.isArray(options.base)) {
-            options.base = [options.base];
-          }
-
-          // Setup the proxy
-          var middlewares = []; //[require('grunt-connect-proxy/lib/utils').proxyRequest];
-
-          // Serve static files.
-          options.base.forEach(function(base) {
-            middlewares.push(connect.static(base));
-          });
-
-          // Make directory browse-able.
-          var directory = options.directory || options.base[options.base.length - 1];
-          middlewares.push(connect.directory(directory));
-
-          grunt.log.debug('binding CORS header set');
-          // Set CORS headers
-          middlewares.push(function(req, res, next) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-            res.setHeader('Access-Control-Allow-Headers', 'set-cookie, x-modhash, accept, content-type, authorization, origin');
-            grunt.log.debug('CORS headers set');
-            next();
-          });
-
-          return middlewares;
-        }
-      },
-      livereload: {
-        options: {
-          open: true,
-          base: [
-            '.tmp',
-            '<%= yeoman.app %>'
-          ]/*,
-          middleware: function(connect, options) {
-            if (!Array.isArray(options.base)) {
-              options.base = [options.base];
-            }
-
-            // Setup the proxy
-            var middlewares = []; //[require('grunt-connect-proxy/lib/utils').proxyRequest];
-
-            // Serve static files.
-            options.base.forEach(function(base) {
-              middlewares.push(connect.static(base));
-            });
-
-            // Make directory browse-able.
-            var directory = options.directory || options.base[options.base.length - 1];
-            middlewares.push(connect.directory(directory));
-
-            grunt.log.writeln('binding CORS header set');
-            // Set CORS headers
-            middlewares.push(function(req, res, next) {
-              res.setHeader('Access-Control-Allow-Origin', '*');
-              res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-              res.setHeader('Access-Control-Allow-Headers', 'set-cookie, x-modhash, accept, content-type, authorization, origin');
-              grunt.log.writeln('CORS headers set');
-              next();
-            });
-
-            return middlewares;
-          }*/
-        }
-      },
       test: {
         options: {
           port: 9001,
@@ -364,32 +255,6 @@ module.exports = function(grunt) {
       ]
     },
 
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= yeoman.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
-
     // Test settings
     karma: {
       unit: {
@@ -401,27 +266,6 @@ module.exports = function(grunt) {
         singleRun: false
       }
     }
-  });
-
-
-  grunt.registerTask('serve', function(target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
-    }
-
-    grunt.task.run([
-      'clean:server',
-      'bowerInstall',
-      'concurrent:server',
-      'autoprefixer',
-      'connect:livereload',
-      'watch'
-    ]);
-  });
-
-  grunt.registerTask('server', function(target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
   });
 
   grunt.registerTask('test', function(target) {
