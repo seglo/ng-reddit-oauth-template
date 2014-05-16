@@ -17,6 +17,6 @@
     "persistent": false
   },
   "web_accessible_resources": [
-    "app/index.html*"
+    "app/index.html#/oauth/*"
   ]
 }
