@@ -22,5 +22,5 @@ angular
       });
   })
   .run(function($log, redditConfig) {
-    $log.info('My chrome-extension reddit OAuth callback is cool: ' + redditConfig.redditApp.redirectUri);
+    $log.info('My chrome-extension reddit OAuth callback: ' + redditConfig.redditApp.redirectUri);
   });
